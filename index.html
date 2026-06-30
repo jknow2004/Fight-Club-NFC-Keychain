@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Movie Card</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+
+    background:
+    radial-gradient(circle at top left,
+    #8d75ff 0%,
+    #7f8eff 35%,
+    #82b8ff 70%,
+    #a6efff 100%);
+}
+
+.card{
+
+    width:420px;
+
+    background:rgba(37,41,57,.82);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:32px;
+
+    padding:42px;
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.movie-title{
+    font-size:2.1rem;
+    font-weight:700;
+    margin-bottom:24px;
+}
+
+.quote{
+    font-size:1.1rem;
+    font-style:italic;
+    color:#d0d6f0;
+    line-height:1.7;
+    margin-bottom:28px;
+}
+
+.poster{
+    width:260px;
+    display:block;
+    margin:auto;
+
+    border-radius:4px;
+
+    box-shadow:
+    0 12px 25px rgba(0,0,0,.3);
+}
+
+.description{
+
+    margin-top:30px;
+
+    color:#d7dcef;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+}
+
+.divider{
+
+    height:1px;
+
+    background:rgba(255,255,255,.08);
+
+    margin:35px 0;
+}
+
+.buttons{
+
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.movie-btn{
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+    90deg,
+    #8b7cff,
+    #75b6ff);
+
+    color:#26324d;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.25s ease;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+
+.movie-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 20px rgba(117,182,255,.25);
+}
+
+.arrow{
+
+    font-size:1.2rem;
+}
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <h1 class="movie-title" id="title"></h1>
+
+    <p class="quote" id="quote"></p>
+
+    <img id="poster" class="poster">
+
+    <p class="description" id="description"></p>
+
+    <div class="divider"></div>
+
+    <div class="buttons">
+
+        <a id="trailerBtn" class="movie-btn" target="_blank">
+            Watch the Trailer
+            <span class="arrow">→</span>
+        </a>
+
+        <a id="imdbBtn" class="movie-btn" target="_blank">
+            View on IMDb
+            <span class="arrow">→</span>
+        </a>
+
+        <a id="soundtrackBtn" class="movie-btn" target="_blank">
+            Listen to the Soundtrack
+            <span class="arrow">→</span>
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+const movie = {
+
+    title: "Fight Club",
+
+    year: "1999",
+
+    poster: "fight-club.jpg",
+
+    imdb:
+    "https://www.imdb.com/title/tt0137523/",
+
+    trailer:
+    "https://www.youtube.com/watch?v=SUXWAEX2jlg",
+
+    soundtrack:
+    "https://open.spotify.com/search/fight%20club%20soundtrack",
+
+    quote:
+    '"The first rule of Fight Club is: you do not talk about Fight Club."',
+
+    description:
+    "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into something much more."
+};
+
+document.getElementById("title").textContent =
+`${movie.title} (${movie.year})`;
+
+document.getElementById("quote").textContent =
+movie.quote;
+
+document.getElementById("poster").src =
+movie.poster;
+
+document.getElementById("description").textContent =
+movie.description;
+
+document.getElementById("trailerBtn").href =
+movie.trailer;
+
+document.getElementById("imdbBtn").href =
+movie.imdb;
+
+document.getElementById("soundtrackBtn").href =
+movie.soundtrack;
+
+</script>
+
+</body>
+</html>
